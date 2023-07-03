@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+</head>
+<body>
+<h1>CTAC County Library</h1>
+<p th:text="${message}"></p>
+<br><br>
+<form action="/authors" method="get">
+  <button type="submit" class="btn btn-info" onclick="location.href='/authors'">View Author List</button>
+</form>
+<br><br>
+<form action="/books" method="get">
+  <button type="submit" class="btn btn-info">View Book List</button>
+</form>
+</body>
+</html>

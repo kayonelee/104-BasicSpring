@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Book List</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+
+</head>
+<body>
+<h1>Book List</h1>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="book : ${books}">
+    <td th:text="${book.id}"></td>
+    <td th:text="${book.title}"></td>
+    <td th:text="${book.author.name}"></td>
+    <td>
+      <a th:href="@{/books/{id}/edit(id=${book.id})}">Edit</a>
+      <a th:href="@{/books/{id}/delete(id=${book.id})}">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<br>
+<button type="submit" class="btn btn-info" onclick="location.href='/books/add'">Add Book</button>
+<br><br>
+<button type="submit" class="btn btn-info" onclick="location.href='/'">Home</button>
+</body>
+</html>

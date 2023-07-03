@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Author List</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+</head>
+<body>
+<h1>Author List</h1>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="author : ${authors}">
+    <td th:text="${author.getId()}"></td>
+    <td th:text="${author.getName()}"></td>
+    <td>
+      <a th:href="@{/authors/edit/{id}(id=${author.getId()})}">Edit</a>
+      <a th:href="@{/authors/delete/{id}(id=${author.getId()})}">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<br>
+<button type="submit" class="btn btn-info" onclick="location.href='/authors/add'">Add Author</button>
+<button type="submit" class="btn btn-info" onclick="location.href='/'">Home</button>
+</body>
+</html>
